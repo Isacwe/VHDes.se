@@ -2,16 +2,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>VHDes</title>
 </head>
+<header>
+    <h1>Vi Hyr Dig en elScooter</h1>
+</header>
 <body>
     <h2 id="welcome"></h2>
     <script>
         const params = new URLSearchParams(window.location.search);
         const text = document.getElementById("welcome");
         let username = params.get('username');
-        text.textContent = `Welcome ${username}!`;
-
+        text.textContent = `Välkommen ${username}!`;
     </script>
 </body>
 </html>
