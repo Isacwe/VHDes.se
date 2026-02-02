@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>LOGIN PAGE</h1>
+    <form id="login-form">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        let username = null;
+        const form = document.getElementById('login-form');
+        form.addEventListener('submit', function (event){
+            event.preventDefault();
+            const text = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if(text == "Isac" && password == "123"){
+                username = text;
+                window.location.href = `sida.html?username=${encodeURIComponent(username)}`;
+            }
+            else{
+                alert("Fel användarnamn eller lösenord!");
+            }
+        });
+    </script>
+</body>
+</html>
