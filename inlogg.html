@@ -1,22 +1,31 @@
 <html lang="en">
+    
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pirata+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<link rel="stylesheet" href="style.css">
 <body>
-    <h1>LOGGA IN</h1>
-    <form id="login-form">
-        <label for="username">användarnamn:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Lösenord:</label><br>
-        <input type="password" id="password" name="password"><br>
+    <div class="login-container"> 
+        <h1>LOGGA IN</h1>
+        <form id="login-form">
+        <label for="username">Användarnamn</label><br>
+        <input type="text" id="username" name="username" class="login-box"><br>
+        <label for="password">Lösenord</label><br>
+        <input type="password" id="password" name="password" class="login-box"><br>
         <input type="submit" value="Submit">
     </form>
 
+    </div>
+    
+
     <script>
         let username = null;
-        const form = document.getElementById('login-form');
+        const form = document.getElementById('login-form'); 
         form.addEventListener('submit', function (event){
             event.preventDefault();
             const text = document.getElementById('username').value;
@@ -26,7 +35,7 @@
                 window.location.href = `sida.html?username=${encodeURIComponent(username)}`;
             }
             else{
-                alert("Fel användarnamn eller lösenord!");
+                alert("Fel användarnamn och/eller lösenord. Du kanske menade användarnamn Isac och lösenord 123");
             }
         });
     </script>

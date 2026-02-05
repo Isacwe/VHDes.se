@@ -1,0 +1,32 @@
+*{
+    font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.849);
+    font-size: 20px;
+}
+
+.login-container {
+    border: 1px solid #98b488; 
+    box-shadow: inset 0px 0px 150px 7px #000000;
+    background-color: rgb(16, 99, 30);
+    padding: 50px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+.login-box{
+    background-color: rgb(3, 83, 0);
+    border-radius: 8px;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+}
