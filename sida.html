@@ -3,18 +3,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VHDes</title>
+    <link rel="stylesheet" href="style_sida.css">
 </head>
 <header>
     <h1>Vi Hyr Dig en elScooter</h1>
 </header>
 <body>
     <h2 id="welcome"></h2>
+    <div class="scooter1">
+        <h2>Scooter 1</h2>
+        <button id="hyrScooter1" class="scooter1-box"> <p id="hyrknapp1">Starta Hyrning</p></button>
+        <p id="senastHyrd"> Du har inte hyrt denna.</p>
+        <p id="hyrstart1"></p>
+        <p id="hyrtid1"></p>
+    </div>
+    
     <script>
+        let hyrning1 = false;
+        let hyr1Start = 0;
+        let hyrtid1 = 0;
+        let hyrDatum1 = 0;
+        const starthyr1 = document.getElementById('hyrstart1');
+        const knapp1 = document.getElementById('hyrknapp1');
+        const hyr1 = document.getElementById('hyrScooter1');
         const params = new URLSearchParams(window.location.search);
-        const text = document.getElementById("welcome");
+        const text = document.getElementById('welcome');
+        const senastHyrd = document.getElementById('senastHyrd');
         let username = params.get('username');
         text.textContent = `Välkommen ${username}!`;
-        
+        hyr1.addEventListener('click', function (event){
+            if(hyrning1 == false){
+                hyrning1 = true;
+                hyr1Start = new Date().toLocaleString();
+                console.log("Hej");
+                starthyr1.textContent = `Startade hyra: ${hyr1Start}!`;
+                knapp1.textContent("Avsluta hyrning!");
+            }
+            else{
+                hyrning1 = false;
+
+            }
+        });
     </script>
 </body>
 </html>

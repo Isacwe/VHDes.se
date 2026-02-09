@@ -1,11 +1,8 @@
-*{
+*{ 
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
 }
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: rgb(0, 0, 0);
     background-color: rgb(95, 126, 80);
     font-size: 20px;
@@ -27,3 +24,23 @@ body {
     border-color: black;
     text-align: center;
 }
+.scooter1 {
+    border: 1px solid #000000; 
+    box-shadow: inset 0px 0px 15px 7px #000000;
+    background-color: rgb(56, 95, 61);
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    border-radius: 20px;
+    border-style: solid;
+}
+.scooter1-box{
+    background-color: rgb(150, 150, 150);
+    border-radius: 8px;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+}
+button:active {
+            background-color: rgb(112, 112, 112);
+        }
