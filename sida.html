@@ -13,7 +13,6 @@
     <div class="scooter1">
         <h2>Scooter 1</h2>
         <button id="hyrScooter1" class="scooter1-box"> <p id="hyrknapp1">Starta Hyrning</p></button>
-        <p id="senastHyrd"> Du har inte hyrt denna.</p>
         <p id="hyrstart1"></p>
         <p id="hyrtid1"></p>
     </div>
@@ -21,11 +20,14 @@
     <script>
         let hyrning1 = false;
         let hyr1Start = 0;
-        let hyrtid1 = 0;
+        let hyrtid1minuter = 0;
+        let hyrtid1sekunder = 0;
         let hyrDatum1 = 0;
+        let tid = 0;
         const starthyr1 = document.getElementById('hyrstart1');
         const knapp1 = document.getElementById('hyrknapp1');
         const hyr1 = document.getElementById('hyrScooter1');
+        const tidHyr1 = document.getElementById('hyrtid1');
         const params = new URLSearchParams(window.location.search);
         const text = document.getElementById('welcome');
         const senastHyrd = document.getElementById('senastHyrd');
@@ -33,15 +35,22 @@
         text.textContent = `Välkommen ${username}!`;
         hyr1.addEventListener('click', function (event){
             if(hyrning1 == false){
+                tidHyr1.textContent = '';
                 hyrning1 = true;
-                hyr1Start = new Date().toLocaleString();
+                hyr1Start = new Date();
                 console.log("Hej");
-                starthyr1.textContent = `Startade hyra: ${hyr1Start}!`;
-                knapp1.textContent("Avsluta hyrning!");
+                starthyr1.textContent = `Startade hyra: ${hyr1Start.toLocaleString()}`;
+                knapp1.textContent = "Avsluta hyrning!";
             }
             else{
+                tid = new Date();
+                hyrtid1 = (tid.getTime() - hyr1Start.getTime()) / (1000);
+                hyrtid1minuter =  Math.floor(hyrtid1 / 60);
+                hyrtid1sekunder = (hyrtid1 % 60);
                 hyrning1 = false;
-
+                starthyr1.textContent = `Senast hyrd: ${hyr1Start.toLocaleString()}`;
+                tidHyr1.textContent = `Du hyrde scootern i ${hyrtid1minuter} minuter och ${hyrtid1sekunder} sekunder`
+                console.log(hyrtid1)
             }
         });
     </script>
