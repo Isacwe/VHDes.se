@@ -1,8 +1,10 @@
-*{
+*{ /* Sätter fonten till all text */
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
+    
 }
-body {
+
+body { /* Ändrar allt innehåll, centrerar det, textfärg och bakgrundsfärg och text storlek */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +13,7 @@ body {
     font-size: 20px;
 }
 
-.login-container {
+.login-container {  /* Skapar inloggningsrutan, bordern, skuggan, färgen, marginal, bredden, centrerar allt */
     border: 1px solid #000000; 
     box-shadow: inset 0px 0px 15px 7px #000000;
     background-color: rgb(56, 95, 61);
@@ -20,10 +22,15 @@ body {
     width: 300px;
     text-align: center;
 }
-.login-box{
+.login-box{ /* Ändrar det i inloggningsrutan, textfälten och texten */
     background-color: rgb(150, 150, 150);
     border-radius: 8px;
     border-style: solid;
     border-color: black;
     text-align: center;
+}
+
+.submit{
+    background-color: rgb(35, 131, 55);
+    border-radius: 10px;
 }

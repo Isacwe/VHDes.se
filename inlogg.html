@@ -1,41 +1,40 @@
 <html lang="en">
     
-<head>
+<head> <!-- Länkar fonten-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pirata+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pirata+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inlogg</title> <!-- Titeln på sidan -->
 </head>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css"> <!-- Länkar css:en -->
 <body>
-    <div class="login-container"> 
-        <h1>LOGGA IN</h1>
+    <div class="login-container"> <!-- Klassen för hela login rutan -->
+        <h1>LOGGA IN</h1> <!-- Rubriken -->
         <form id="login-form">
-        <label for="username">Användarnamn</label><br>
-        <input type="text" id="username" name="username" class="login-box"><br>
-        <label for="password">Lösenord</label><br>
-        <input type="password" id="password" name="password" class="login-box"><br>
-        <input type="submit" value="Submit">
+        <label for="username">Användarnamn</label><br> <!-- Texten vid rutan för att skriva in användarnamnet -->
+        <input type="text" id="username" name="username" class="login-box"><br> <!-- Rutan att skriva in användarnamnet i -->
+        <label for="password">Lösenord</label><br> <!--Texten vid lösenordsrutan -->
+        <input type="password" id="password" name="password" class="login-box"><br> <!-- Lösenordsrutan-->
+        <input type="submit" value="Submit" class="submit"> <!-- Knapp för att logga in -->
     </form>
 
     </div>
     
 
-    <script>
-        let username = null;
+    <script> // All JavaScript för inloggningen, Tagit kod från exempel för att skapa detta
+        let username = null; //Skapar variabel för användarnamnet för att skicka med till huvudhemsidan
         const form = document.getElementById('login-form'); 
-        form.addEventListener('submit', function (event){
-            event.preventDefault();
-            const text = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            if(text == "Isac" && password == "123"){
-                username = text;
-                window.location.href = `sida.html?username=${encodeURIComponent(username)}`;
+        form.addEventListener('submit', function (event){ //Lyssnar efter att knappen submit trycks på
+            event.preventDefault(); //Behövs för att form ska fungera
+            const text = document.getElementById('username').value; //Variabel för användarnamnet
+            const password = document.getElementById('password').value; //Variabel för lösenordet
+            if(text == "Isac" && password == "123"){ //Kollar om användarnamnet och lösenordet stämmer med kontot
+                username = text; //Ger variabeln för huvudhemsidan värdet av användarnamnet
+                window.location.href = `sida.html?username=${encodeURIComponent(username)}`; //Skickar användaren till huvudhemsidan med deras användarnamn för välkomstmedelandet
             }
             else{
-                alert("Fel användarnamn och/eller lösenord. Du kanske menade användarnamn Isac och lösenord 123");
+                alert("Fel användarnamn och/eller lösenord. Du kanske menade användarnamn Isac och lösenord 123"); //Felmedelande om användarnamnet och/eller lösenordet är fel
             }
         });
     </script>

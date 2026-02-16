@@ -6,24 +6,28 @@
     <link rel="stylesheet" href="style_sida.css">
 </head>
 <header>
-    <h1>Vi Hyr Dig en elScooter</h1>
+    <h1>Vi Hyr Dig en elScooter</h1> <!-- Titeln -->
 </header>
 <body>
-    <h2 id="welcome"></h2>
-    <div class="scooter1">
-        <h2>Scooter 1</h2>
-        <button id="hyrScooter1" class="scooter1-box"> <p id="hyrknapp1">Starta Hyrning</p></button>
-        <p id="hyrstart1"></p>
-        <p id="hyrtid1"></p>
+    <h2 id="welcome"></h2> <!-- Plats för välkomstmedelandet med användarens namn -->
+    <div class="scooter1"> <!-- Lådan för att hyra scooter1 (ifall det tillkommer fler scootrar i framtiden så heter den 1) -->
+        <h2>Scooter 1</h2> 
+        <p id="PrisPerMinut1"></p> <!-- Priset för att hyra scootern per minut-->
+        <button id="hyrScooter1" class="scooter1-box"> <p id="hyrknapp1">Starta Hyrning</p></button> <!-- Knapp för att hyra scooter1 -->
+        <p id="hyrstart1"></p> <!-- Tom textrad för tid och datum som man började hyra scootern -->
+        <p id="hyrtid1"></p> <!-- Tom textrad för hur länge man hyrde scootern -->
+        <p id="hyrPris1"></p> <!-- Tom textrad som visar hur mycket det kostade -->
     </div>
     
     <script>
+        //Variablarna
         let hyrning1 = false;
         let hyr1Start = 0;
         let hyrtid1minuter = 0;
         let hyrtid1sekunder = 0;
         let hyrDatum1 = 0;
         let tid = 0;
+        let hyrpris1 = 5;
         const starthyr1 = document.getElementById('hyrstart1');
         const knapp1 = document.getElementById('hyrknapp1');
         const hyr1 = document.getElementById('hyrScooter1');
@@ -31,26 +35,33 @@
         const params = new URLSearchParams(window.location.search);
         const text = document.getElementById('welcome');
         const senastHyrd = document.getElementById('senastHyrd');
-        let username = params.get('username');
+        const PrisPerMinut1 = document.getElementById('PrisPerMinut1');
+        const pris1 = document.getElementById('hyrPris1');
+        let username = params.get('username'); //Variabel för användarnamnet
+        //Text rutor som ändras beroende på olika faktorer, namn och priset
         text.textContent = `Välkommen ${username}!`;
-        hyr1.addEventListener('click', function (event){
-            if(hyrning1 == false){
-                tidHyr1.textContent = '';
-                hyrning1 = true;
-                hyr1Start = new Date();
-                console.log("Hej");
-                starthyr1.textContent = `Startade hyra: ${hyr1Start.toLocaleString()}`;
-                knapp1.textContent = "Avsluta hyrning!";
+        PrisPerMinut1.textContent = `${hyrpris1}kr/minut`
+
+        hyr1.addEventListener('click', function (event){ //Känner av när man klickar på hyr knappen
+            if(hyrning1 == false){ //Startar hyra om man inte hyr redann
+                tidHyr1.textContent = ''; //Tömmer variabeln för hur länge man hyrde scootern senast
+                hyrning1 = true; 
+                hyr1Start = new Date(); //Tar tid och datum för när man började hyra
+                starthyr1.textContent = `Startade hyra: ${hyr1Start.toLocaleString()}`; //Skriver när man började hyra
+                knapp1.textContent = "Avsluta hyrning!"; //Ändrar knappen till att avsluta hyrningen
+                document.getElementsByClassName('scooter1')[0].style.backgroundColor = "rgb(255, 0, 21)"; //Ändrar bakgrundsfärgen på scooter1 rutan
             }
-            else{
-                tid = new Date();
-                hyrtid1 = (tid.getTime() - hyr1Start.getTime()) / (1000);
-                hyrtid1minuter =  Math.floor(hyrtid1 / 60);
-                hyrtid1sekunder = (hyrtid1 % 60);
+            else{ //Slutar hyra om man redan hyr
+                tid = new Date(); //Tar tiden och datumet man slutade hyra
+                hyrtid1 = (tid.getTime() - hyr1Start.getTime()) / (1000); //Räknar ut hur länge man hyrt i sekunder
+                hyrtid1minuter =  Math.floor(hyrtid1 / 60); //Räknar ut hur länge man hyrt i hela minuter
+                hyrtid1sekunder = (hyrtid1 % 60); //Räknar ut hur många sekunder utöver de minutrar man hyrt
                 hyrning1 = false;
-                starthyr1.textContent = `Senast hyrd: ${hyr1Start.toLocaleString()}`;
-                tidHyr1.textContent = `Du hyrde scootern i ${hyrtid1minuter} minuter och ${hyrtid1sekunder} sekunder`
-                console.log(hyrtid1)
+                starthyr1.textContent = `Senast hyrd: ${hyr1Start.toLocaleString()}`; //Skriver när man senast började hyra
+                tidHyr1.textContent = `Du hyrde scootern i ${hyrtid1minuter} minuter och ${hyrtid1sekunder} sekunder` //Skriver hur länge man hyrde scootern
+                knapp1.textContent = "Starta hyrning!"; //Ändrar hyrknappens text
+                document.getElementsByClassName('scooter1')[0].style.backgroundColor = "rgb(56, 95, 61)"; //Ändrar tillbaka bakgrundsfärgen på scooter1 rutan
+                pris1.textContent = `${(hyrpris1*hyrtid1/60).toFixed(3)}Kr`; //Skriver ut priset
             }
         });
     </script>
