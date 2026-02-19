@@ -30,7 +30,7 @@ body { /* Ändrar allt innehåll, centrerar det, textfärg och bakgrundsfärg oc
     text-align: center;
 }
 
-.submit{
+.submit{ /* Ändrar färgen på submitknappen */
     background-color: rgb(35, 131, 55);
     border-radius: 10px;
 }

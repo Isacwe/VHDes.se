@@ -1,30 +1,13 @@
-*{ 
+*{  /* Sätter fonten för hela projektet */
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
 }
-body {
+body { /* Ändra textfärg, bakgrundsfärg och text storlek */
     color: rgb(0, 0, 0);
     background-color: rgb(95, 126, 80);
     font-size: 20px;
 }
-
-.login-container {
-    border: 1px solid #000000; 
-    box-shadow: inset 0px 0px 15px 7px #000000;
-    background-color: rgb(56, 95, 61);
-    padding: 50px;
-    border-radius: 8px;
-    width: 300px;
-    text-align: center;
-}
-.login-box{
-    background-color: rgb(150, 150, 150);
-    border-radius: 8px;
-    border-style: solid;
-    border-color: black;
-    text-align: center;
-}
-.scooter1 {
+.scooter1 { /* Hela lådan för scooter 1. Border storlek och färg, skuggan, bakgrundsfärgen, rundade hörnen, storlek, vart texten ligger */
     border: 1px solid #000000; 
     box-shadow: inset 0px 0px 15px 7px #000000;
     background-color: rgb(56, 95, 61);
@@ -36,13 +19,13 @@ body {
     border-style: solid;
     transition: background-color 0.2s ease;
 }
-.scooter1-box{
+.scooter1-box{ /* Ändrar Hyrknappens färg, border vart texten ligger */
     background-color: rgb(150, 150, 150);
     border-radius: 8px;
     border-style: solid;
     border-color: black;
     text-align: center;
 }
-button:active {
+button:active { /* Gör så att hyrknappen blir mörkare medans man trycker på den.  */
             background-color: rgb(112, 112, 112);
         }
